@@ -1,7 +1,7 @@
 // index.js
-import express from "express";
-import pool from "./db.js";
-import dotenv from "dotenv";
+const express = require("express");
+const dotenv = require("dotenv");
+const pool = require("./db");
 
 dotenv.config();
 const app = express();
@@ -38,7 +38,7 @@ app.get("/tasks", async (req, res) => {
   }
 });
 
-// ✅ Update Task (checked or title/subtitle)
+// ✅ Update Task
 app.put("/tasks/:id", async (req, res) => {
   try {
     const { id } = req.params;
