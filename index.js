@@ -31,6 +31,7 @@ app.get("/", (req, res) => {
 // 📝 Create Task
 app.post("/tasks", async (req, res) => {
   try {
+    console.log(`Body => ${req.body}`);
     const { title, subtitle, isChecked = false } = req.body;
     if (!title) return sendResponse(res, 400, null, "Title is required");
 
