@@ -36,7 +36,7 @@ app.post("/tasks", async (req, res) => {
     if (!title) return sendResponse(res, 400, null, "Title is required");
 
     const result = await pool.query(
-      "INSERT INTO tasks (title, subtitle ) VALUES ($1, $2, $3) RETURNING *",
+      "INSERT INTO tasks (title, subtitle) VALUES ($1, $2) RETURNING *",
       [title, subtitle]
     );
 
